@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante Sabor & Arte</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo.png" alt="Sabor & Arte">
+                <span>Sabor & Arte</span>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="#" class="active"><i class="fas fa-home"></i> Início</a></li>
+                    <li><a href="#menu"><i class="fas fa-utensils"></i> Cardápio</a></li>
+                    <li><a href="#promo"><i class="fas fa-percentage"></i> Promoções</a></li>
+                    <li><a href="#" id="cart-btn"><i class="fas fa-shopping-cart"></i> <span
+                                id="cart-count">0</span></a></li>
+                    <li><a href="#" id="login-btn"><i class="fas fa-user"></i> Entrar</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Banner Principal -->
+    <section class="banner">
+        <div class="container">
+            <h1>Comida de qualidade entregue na sua porta</h1>
+            <p>Peça suas refeições favoritas do conforto da sua casa</p>
+            <button class="btn-primary">Ver Cardápio</button>
+        </div>
+    </section>
+
+    <!-- Categorias -->
+    <section class="categories">
+        <div class="container">
+            <h2>Categorias</h2>
+            <div class="carousel">
+                <button class="carousel-control prev" aria-label="Anterior">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="carousel-container">
+                    <div class="carousel-track" id="carousel-track">
+                        <!-- Itens do carousel serão adicionados via JavaScript -->
+                    </div>
+                </div>
+                <button class="carousel-control next" aria-label="Próximo">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cardápio -->
+    <section class="menu" id="menu">
+        <div class="container">
+            <h2>Cardápio Popular</h2>
+            <div class="menu-filters">
+                <div class="filter-group">
+                    <label for="category-filter">Categoria:</label>
+                    <select id="category-filter">
+                        <option value="all">Todas</option>
+                        <option value="Lanches">Lanches</option>
+                        <option value="Pizzas">Pizzas</option>
+                        <option value="Japonesa">Japonesa</option>
+                        <option value="Saudável">Saudável</option>
+                        <option value="Sobremesas">Sobremesas</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="price-filter">Preço:</label>
+                    <select id="price-filter">
+                        <option value="all">Todos</option>
+                        <option value="0-20">Até R$ 20</option>
+                        <option value="20-40">R$ 20 - R$ 40</option>
+                        <option value="40-60">R$ 40 - R$ 60</option>
+                        <option value="60+">Acima de R$ 60</option>
+                    </select>
+                </div>
+                <button id="reset-filters" class="btn-filter">Limpar Filtros</button>
+            </div>
+            <div class="menu-grid" id="menu-items">
+                <!-- Itens serão adicionados via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Promoções -->
+    <section class="promotions" id="promo">
+        <div class="container">
+            <h2>Promoções Especiais</h2>
+            <div class="promo-grid">
+                <div class="promo-card">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                        alt="Duas pizzas grandes e refrigerante 2L">
+                    <div class="promo-info">
+                        <h3>Combo Família</h3>
+                        <p>2 pizzas grandes + refrigerante 2L por apenas R$ 79,90</p>
+                        <button class="btn-promo">Aproveitar</button>
+                    </div>
+                </div>
+                <div class="promo-card">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                        alt="Prato vegetariano com legumes frescos">
+                    <div class="promo-info">
+                        <h3>Segunda sem carne</h3>
+                        <p>20% de desconto em todos os pratos vegetarianos</p>
+                        <button class="btn-promo">Aproveitar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carrinho de Compras -->
+    <div class="cart-overlay" id="cart-overlay">
+        <div class="cart">
+            <div class="cart-header">
+                <h3>Seu Carrinho</h3>
+                <button id="close-cart">&times;</button>
+            </div>
+            <div class="cart-items" id="cart-items">
+                <!-- Itens do carrinho serão adicionados via JavaScript -->
+            </div>
+            <div class="cart-total">
+                <h4>Total: R$ <span id="cart-total">0.00</span></h4>
+                <button class="btn-checkout">Finalizar Pedido</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Login -->
+    <div class="login-modal" id="login-modal">
+        <div class="login-box">
+            <button id="close-login">&times;</button>
+            <h2>Entrar</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="btn-login">Entrar</button>
+            </form>
+            <p>Não tem uma conta? <a href="#" id="register-link">Cadastre-se</a></p>
+        </div>
+    </div>
+
+    <!-- Modal de Cadastro -->
+    <div class="register-modal" id="register-modal">
+        <div class="register-box">
+            <button id="close-register">&times;</button>
+            <h2>Cadastre-se</h2>
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="reg-name">Nome Completo</label>
+                    <input type="text" id="reg-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-email">E-mail</label>
+                    <input type="email" id="reg-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-password">Senha</label>
+                    <input type="password" id="reg-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-phone">Telefone</label>
+                    <input type="tel" id="reg-phone" required>
+                </div>
+                <button type="submit" class="btn-register">Cadastrar</button>
+            </form>
+            <p>Já tem uma conta? <a href="#" id="login-link">Faça login</a></p>
+        </div>
+    </div>
+
+    <!-- Modal de Avaliações -->
+    <div class="reviews-modal" id="reviews-modal">
+        <div class="reviews-box">
+            <button id="close-reviews">&times;</button>
+            <h3 id="reviews-title">Avaliações</h3>
+            <div id="reviews-list">
+                <!-- Avaliações serão carregadas aqui -->
+            </div>
+            <div class="add-review">
+                <h4>Adicionar Avaliação</h4>
+                <div class="rating-stars">
+                    <i class="fas fa-star" data-rating="1"></i>
+                    <i class="fas fa-star" data-rating="2"></i>
+                    <i class="fas fa-star" data-rating="3"></i>
+                    <i class="fas fa-star" data-rating="4"></i>
+                    <i class="fas fa-star" data-rating="5"></i>
+                </div>
+                <textarea id="review-comment" placeholder="Deixe seu comentário..." rows="3"></textarea>
+                <button id="submit-review" class="btn-primary">Enviar Avaliação</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <div class="footer-section">
+                <h4>Sobre Nós</h4>
+                <p>O Restaurante Sabor & Arte traz experiências gastronômicas únicas desde 2010.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Links Rápidos</h4>
+                <ul>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#menu">Cardápio</a></li>
+                    <li><a href="#promo">Promoções</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contato</h4>
+                <p><i class="fas fa-phone"></i> (11) 1234-5678</p>
+                <p><i class="fas fa-envelope"></i> contato@saborearte.com</p>
+            </div>
+            <div class="footer-section">
+                <h4>Redes Sociais</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Restaurante Sabor & Arte. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
