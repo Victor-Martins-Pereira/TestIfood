@@ -1,0 +1,49 @@
+/* ==================== MEDIA QUERIES ==================== */
+@media (max-width: 992px) {
+    header .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .promo-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .promo-card {
+        flex-direction: column;
+    }
+
+    .promo-card img {
+        width: 100%;
+        height: 150px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cart {
+        width: 100%;
+    }
+
+    .login-box,
+    .register-box {
+        width: 90%;
+    }
+}
+
+@media (max-width: 576px) {
+    nav ul {
+        gap: 10px;
+    }
+
+    nav a span {
+        display: none;
+    }
+
+    .menu-filters {
+        flex-direction: column;
+    }
+
+    .reviews-box {
+        width: 90%;
+    }
+}
